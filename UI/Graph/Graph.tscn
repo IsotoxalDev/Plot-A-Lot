@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Graph/Graph.gd" type="Script" id=1]
+[ext_resource path="res://UI/Graph/Grid.gd" type="Script" id=2]
+
+[node name="Graph" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Grid" type="Node2D" parent="."]
+position = Vector2( -5000, -5000 )
+script = ExtResource( 2 )
+color = Color( 0.188235, 0.176471, 0.254902, 1 )
+center_color = Color( 0.788235, 0.796078, 1, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ZoomTween" type="Tween" parent="Camera2D"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Theme/PlotALot.tres" type="Theme" id=1]
 [ext_resource path="res://UI/Panel/Panel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://UI/Graph/Graph.gd" type="Script" id=3]
-[ext_resource path="res://UI/Graph/Grid.gd" type="Script" id=4]
+[ext_resource path="res://UI/Graph/Graph.tscn" type="PackedScene" id=3]
 
 [node name="PlotALot" type="Control"]
 anchor_right = 1.0
@@ -37,18 +36,4 @@ size = Vector2( 1020, 720 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="Graph" type="Control" parent="UI/GraphViewportContainer/GraphViewport"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 3 )
-
-[node name="Grid" type="Node2D" parent="UI/GraphViewportContainer/GraphViewport/Graph"]
-position = Vector2( -5000, -5000 )
-script = ExtResource( 4 )
-color = Color( 0.188235, 0.176471, 0.254902, 1 )
-center_color = Color( 0.788235, 0.796078, 1, 1 )
-
-[node name="Camera2D" type="Camera2D" parent="UI/GraphViewportContainer/GraphViewport/Graph"]
-current = true
-
-[node name="ZoomTween" type="Tween" parent="UI/GraphViewportContainer/GraphViewport/Graph/Camera2D"]
+[node name="Graph" parent="UI/GraphViewportContainer/GraphViewport" instance=ExtResource( 3 )]
