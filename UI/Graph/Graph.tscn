@@ -7,6 +7,9 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Grid" type="Node2D" parent="."]
 position = Vector2( -5000, -5000 )

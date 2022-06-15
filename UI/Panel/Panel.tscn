@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Theme/Font/mononoki-Regular Nerd Font Complete.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI/Panel/Panel.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -10,6 +11,7 @@ font_data = ExtResource( 1 )
 margin_right = 266.0
 margin_bottom = 720.0
 rect_min_size = Vector2( 266, 0 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,13 +46,14 @@ margin_right = 256.0
 margin_bottom = 90.0
 rect_min_size = Vector2( 0, 30 )
 
-[node name="LineEdit" type="LineEdit" parent="VBox/Control"]
+[node name="ExpressionInput" type="LineEdit" parent="VBox/Control"]
 margin_left = 10.0
 margin_top = 3.0
 margin_right = 246.0
 margin_bottom = 27.0
 rect_min_size = Vector2( 236, 0 )
 placeholder_text = "Expression"
+caret_blink = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,3 +72,5 @@ margin_right = 256.0
 margin_bottom = 626.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[connection signal="text_entered" from="VBox/Control/ExpressionInput" to="." method="_on_ExpressionInput_text_entered"]

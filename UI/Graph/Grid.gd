@@ -8,6 +8,8 @@ export var zoom = 0.0
 export var offset = Vector2(0, 0)
 export var grid_size = Vector2()
 
+var to_plot: PoolVector2Array
+
 func _draw():
 	if size == 0:
 		size = 1
@@ -30,3 +32,6 @@ func _draw():
 
 	draw_line(Vector2(grid_size.x/2, 0) + wrap_offset, Vector2(grid_size.x/2, grid_size.y)+wrap_offset, center_color, 2)
 	draw_line(Vector2(0, grid_size.y/2) + wrap_offset, Vector2(grid_size.x, grid_size.y/2)+wrap_offset, center_color, 2)
+	
+	for point in to_plot:
+		draw_circle(Vector2(grid_size.x/2, grid_size.y/2) + point, 5, Color.lavender)

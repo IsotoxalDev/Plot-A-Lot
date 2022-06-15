@@ -1,5 +1,7 @@
 extends Control
 
+var to_plot: PoolVector2Array
+
 var drag = false
 var min_pan = Vector2(-2000, 2000)
 var max_pan = Vector2(2000, -2000)
@@ -15,6 +17,7 @@ onready var grid = $Grid
 onready var zoom_tween = $Camera2D/ZoomTween
 
 func _ready():
+	PlotALot.graph = self
 	grid.size = unit
 	grid.grid_size = graph_size * unit * 2
 	grid.position = -grid.grid_size/2
@@ -46,3 +49,7 @@ func _input(event):
 			if to_move.x > min_pan.x and  to_move.x < max_pan.x:
 				if to_move.y < min_pan.y and  to_move.y > max_pan.y:
 					camera.offset = to_move
+
+func plot(points: PoolVector2Array):
+	grid.to_plot = points
+	grid.update()
